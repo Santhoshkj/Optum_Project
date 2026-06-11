@@ -32,10 +32,6 @@ claims_df = drop_columns(claims_df,['_id'])
 
 # COMMAND ----------
 
-check_string_as_nan(claims_df)
-
-# COMMAND ----------
-
 claims_df = claims_df.replace("NaN",None)
 claims_df = claims_df.fillna({"Claim_Or_Rejected":"N"})
 claims_df = claims_df.withColumn("claim_amount", claims_df['claim_amount'].cast("integer"))
@@ -52,6 +48,10 @@ check_duplicates(claims_df,claims_df.columns)
 # COMMAND ----------
 
 display(claims_df)
+
+# COMMAND ----------
+
+claims.slect("*".show())
 
 # COMMAND ----------
 
