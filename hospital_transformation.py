@@ -20,6 +20,12 @@ check_missing_values(hos_df,hos_df.columns)
 
 # COMMAND ----------
 
+display(hos_df.limit())
+hos_df.select("*").filter(col(hos_id)=='11004')
+hos_df.select("Santhosh")
+
+# COMMAND ----------
+
 check_string_as_nan(hos_df)
 
 # COMMAND ----------
@@ -39,10 +45,6 @@ display(hos_df)  #action
 #actual transformations
 hos_df = hos_df.fillna({'state':"UT"})
 hos_df = hos_df.replace("New Delhi", "Delhi")
-
-# COMMAND ----------
-
-display(hos_df)
 
 # COMMAND ----------
 
